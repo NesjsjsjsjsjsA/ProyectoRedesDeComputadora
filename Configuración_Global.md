@@ -37,11 +37,20 @@ encapsulation dot1Q 50
 ip address 192.168.50.85 255.255.255.252
 exit
 
+interface FastEthernet 0/1
+ip address 192.168.50.101 255.255.255.252
+no shutdown
+exit
+
+router ospf 1
+network 192.168.50.0 0.0.0.255 area 0
 end
 
 wr
 
 show ip interface brief
+
+show ip protocols
 
 ```
 
@@ -87,24 +96,6 @@ save
 show ip
 ```
 
-#### Pruebas
-En PC-Ventas
-
-```
-ping 192.168.50.85
-```
-```
-trace 192.168.50.85
-```
-
-En PC-S_Espera
-
-```
-ping 192.168.50.1
-```
-```
-trace 192.168.50.1
-```
 
 ## Nivel dos
 
@@ -146,9 +137,23 @@ encapsulation dot1Q 110
 ip address 192.168.50.109 255.255.255.252
 exit
 
+interface FastEthernet 0/1
+ip address 192.168.50.102 255.255.255.252
+no shutdown
+exit
+
+interface FastEthernet1/0
+ip address 192.168.50.105 255.255.255.252
+no shutdown
+exit
+
+router ospf 1
+network 192.168.50.0 0.0.0.255 area 0
 end
 
 wr
+
+show ip protocols
 
 show ip interface brief
 
@@ -204,6 +209,7 @@ save
 show ip
 ```
 
+
 ## Nivel tres
 
 ### Configuración de router R3
@@ -239,20 +245,32 @@ encapsulation dot1Q 160
 ip address 192.168.50.97 255.255.255.252
 exit
 
+interface FastEthernet 0/1
+ip address 192.168.50.106 255.255.255.252
+no shutdown 
+exit
+
+router ospf 1
+network 192.168.50.0 0.0.0.255 area 0
 end
 
 wr
 
 show ip interface brief
+
+show ip protocols
+
 ```
 
 ### Configuración de Maquinas
 
 1. PC-GerenciaG
+
 ```
 ip 192.168.50.34 255.255.255.248 192.168.50.33
 save
 show ip
+
 ```
 
 2. PC-Servidores
@@ -287,67 +305,3 @@ save
 show ip
 ```
 
-## Configuración de Routers (entre niveles)
-
-### Configuración Router R1
-
-```
-configure terminal
-interface FastEthernet 0/1
-ip address 192.168.50.101 255.255.255.252
-no shutdown
-exit
-
-router ospf 1
-network 192.168.50.100 0.0.0.3 area 0
-end
-
-wr
-
-show ip protocols
-
-```
-
-
-### Configuración Router R2
-
-```
-configure terminal
-interface FastEthernet 0/1
-ip address 192.168.50.102 255.255.255.252
-no shutdown
-exit
-
-interface FastEthernet1/0
-ip address 192.168.50.105 255.255.255.252
-no shutdown
-exit
-
-router ospf 1
-network 192.168.50.100 0.0.0.3 area 0
-network 192.168.50.104 0.0.0.3 area 0
-end
-
-wr
-
-show ip protocols
-
-```
-
-### Configuración Router R3
-
-```
-configure terminal
-interface FastEthernet 0/1
-ip address 192.168.50.106 255.255.255.252
-no shutdown 
-exit
-
-router ospf 1
-network 192.168.50.104 0.0.0.3 area 0
-end
-
-wr
-
-show ip protocols
-```

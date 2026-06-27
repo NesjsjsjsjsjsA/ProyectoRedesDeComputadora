@@ -94,7 +94,7 @@
         "nodes": [
             {
                 "compute_id": "local",
-                "console": 5001,
+                "console": 5039,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],
@@ -151,7 +151,7 @@
             },
             {
                 "compute_id": "local",
-                "console": 5002,
+                "console": 5040,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],
@@ -208,7 +208,7 @@
             },
             {
                 "compute_id": "local",
-                "console": 5003,
+                "console": 5041,
                 "console_auto_start": false,
                 "console_type": "telnet",
                 "custom_adapters": [],

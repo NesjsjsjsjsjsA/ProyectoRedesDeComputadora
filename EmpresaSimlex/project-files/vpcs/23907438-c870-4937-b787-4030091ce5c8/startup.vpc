@@ -1,2 +1,2 @@
-set pcname PC-Invitados
-ip 192.168.50.98 192.168.50.97 28
+set pcname VPCS
+ip 192.168.50.42 192.168.50.41 29
