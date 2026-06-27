@@ -56,7 +56,7 @@
             },
             {
                 "filters": {},
-                "link_id": "2ca4970c-ae85-4c9f-8dbb-835df7770824",
+                "link_id": "62e6ce49-14a3-4e7f-b579-2b651e49c428",
                 "link_style": {
                     "color": "#000000",
                     "type": 1,
@@ -80,12 +80,12 @@
                         "label": {
                             "rotation": 0,
                             "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
-                            "text": "f0/1",
+                            "text": "f0/0",
                             "x": -2,
                             "y": 3
                         },
                         "node_id": "13a445b9-a23e-4973-9f33-d1b80e238ca4",
-                        "port_number": 1
+                        "port_number": 0
                     }
                 ],
                 "suspend": false
